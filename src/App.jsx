@@ -1,21 +1,52 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Home } from './pages/Home'
+// src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
 import { ViewImages } from './pages/ViewImages';
 import { ScannerQr } from './pages/ScannerQr';
-import { ViewMobile } from './pages/ViewMobile';  
+import { ViewMobile } from './pages/ViewMobile';
+import { Login } from './pages/Login';
+import { ProtectedRoute } from './ProtectedRoute'; // Asegúrate de la ruta correcta
 
 function App() {
-
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/view-images" element={<ViewImages />} />
-        <Route path="/scanner-qr" element={<ScannerQr />} />
-        <Route path="/view-mobile" element={<ViewMobile />} />
+        <Route path="/" element={<Login />} />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/view-images"
+          element={
+            <ProtectedRoute>
+              <ViewImages />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/scanner-qr"
+          element={
+            <ProtectedRoute>
+              <ScannerQr />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/view-mobile"
+          element={
+            <ProtectedRoute>
+              <ViewMobile />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
