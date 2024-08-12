@@ -9,7 +9,7 @@ export const ProtectedRoute = ({ children }) => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/auth-status', { withCredentials: true });
+                const response = await axios.get('http://0.0.0.0:5000/auth-status', { withCredentials: true });
                 setAuthenticated(response.data.authenticated);
             } catch (error) {
                 console.error('Auth status error:', error);
