@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home'
 import { ViewImages } from './pages/ViewImages';
 import { ScannerQr } from './pages/ScannerQr';
-import { ViewMobile } from './pages/ViewMobile';
+import { ViewMobile } from './pages/ViewMobile';  
 
 function App() {
 
