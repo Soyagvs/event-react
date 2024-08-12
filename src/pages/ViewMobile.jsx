@@ -54,10 +54,25 @@ export const ViewMobile = () => {
         handleImageChange(event);
     };
 
-    const handleSend = () => {
-        // Lógica para enviar la foto
-        console.log('Foto enviada');
-        setShowModal(false);
+    const handleSend = async () => {
+        if (image) {
+            const blob = await fetch(image).then(res => res.blob());
+            const formData = new FormData();
+            formData.append('image', blob, 'photo.png');
+
+            fetch('http://localhost:5000/upload', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Imagen subida:', data);
+                    setShowModal(false);
+                })
+                .catch(error => {
+                    console.error('Error al subir la imagen:', error);
+                });
+        }
     };
 
     const handleTakeSnapshot = () => {
