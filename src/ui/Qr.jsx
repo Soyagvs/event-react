@@ -1,7 +1,7 @@
 import QRCode from 'qrcode.react';
 
 export const Qr = () => {
-    const urlToEncode = "https://eventphoto.vercel.app/translate"
+    const urlToEncode = "https://eventphoto.vercel.app/view-mobile"
   return (
       <div className="flex justify-center items-center">
           <QRCode
