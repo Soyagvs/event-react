@@ -7,6 +7,8 @@ import { ViewMobile } from './pages/ViewMobile';
 import { Login } from './pages/Login';
 import { ProtectedRoute } from './ProtectedRoute'; // Asegúrate de la ruta correcta
 
+
+
 function App() {
   return (
     <Router>
